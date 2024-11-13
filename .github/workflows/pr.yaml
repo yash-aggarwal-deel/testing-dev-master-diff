@@ -1,0 +1,23 @@
+# TODO: Please setup correct node version for your project
+
+name: pr
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+  statuses: write
+  pull-requests: write
+
+jobs:
+  prerequisites:
+    uses: letsdeel/actions-templates/.github/workflows/prerequisites.yml@dev
+    with:
+      node_version: "20"
+  pr:
+    uses: letsdeel/actions-templates/.github/workflows/regression.yml@dev
+    needs: prerequisites
+    with:
+      node-version: "20"
