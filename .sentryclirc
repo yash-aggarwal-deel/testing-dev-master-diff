@@ -1,0 +1,4 @@
+[defaults]
+org = deel
+# TODO: set the correct Sentry project
+project = PROJECT_PLACE_HOLDER
