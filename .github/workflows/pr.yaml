@@ -1,0 +1,21 @@
+# TODO: Please uncomment this file; it is commented to prevent triggering the workflow in the service template repository.
+
+# name: pr
+# on:
+#   pull_request:
+#     types: [opened, synchronize, edited]
+#   workflow_dispatch:
+# permissions:
+#   id-token: write
+#   contents: read
+#   statuses: write
+#   pull-requests: write
+
+# jobs:
+#   prerequisites:
+#     uses: letsdeel/actions-templates/.github/workflows/prerequisites.yml@dev
+#   pr:
+#     uses: letsdeel/actions-templates/.github/workflows/regression.yml@dev
+#     needs: prerequisites
+#     with:
+#       node-version: "18"

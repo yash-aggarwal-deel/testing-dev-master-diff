@@ -1,0 +1,6 @@
+Dockerfile @letsdeel/infra-eng
+CODEOWNERS @letsdeel/devops
+
+**/migrations @letsdeel/db-admins
+*.prisma      @letsdeel/db-admins
+
