@@ -1,0 +1,18 @@
+version: '3'
+name: service-template
+services:
+  nats:
+    image: nats:2.10.19-alpine
+    command: -m 8222 -js -server_name nats
+    ports:
+      - "4222:4222"
+
+  nats_init:
+    image: natsio/nats-box:0.14.6
+    entrypoint: sh
+    command: >
+      -c '
+      nats --server nats:4222 stream create local --subjects hello.* --no-allow-direct --retention limits --defaults
+      '
+    depends_on:
+      - nats

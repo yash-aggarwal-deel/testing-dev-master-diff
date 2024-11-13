@@ -1,0 +1,37 @@
+schema-version: v2.1
+# this should be aligned with k8s annotations from Helm chart, services are discovered from APM
+# TODO: update SERVICE_NAME
+dd-service: <SERVICE_NAME>
+# using same team name as 'handle' in pre-created Datadog team
+team: infra-eng
+contacts:
+  - type: slack
+    # TODO: change CHANNEL_NAME
+    name: "#<CHANNEL_NAME>"
+    # TODO: change CHANNEL_ID
+    contact: https://letsdeel.slack.com/archives/<CHANNEL_ID>
+# TODO: change the SERVICE_NAME
+application: <SERVICE_NAME>
+# TODO: change the SERVICE_DESCRIPTION
+description: <SERVICE_DESCRIPTION>
+tier: tier 1
+lifecycle: production
+#  TODO: add any link that provides valuable information about the service, like a Datadog dashboard or documentation page.
+links:
+  - name: Source
+    type: repo
+    provider: github
+    # TODO: change the GITHUB_URL e.g https://github.com/letsdeel/pdf
+    url: <GITHUB_URL>
+  - name: Helm chart
+    type: repo
+    provider: github
+    # TODO: change the GITHUB_HELM_CHART_URL e.g https://github.com/letsdeel/gitops-applications/tree/dev/charts/pdf
+    url: <GITHUB_HELM_CHART_URL>
+tags:
+  # TODO: should be one of, remove irrelevant tags from you service definition
+  - invocation:http
+  - invocation:rabbitmq
+  - invocation:nats-jetstream
+  - invocation:cronjob
+  - invocation:migration
